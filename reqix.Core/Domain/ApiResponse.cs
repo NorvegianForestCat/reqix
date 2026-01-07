@@ -31,7 +31,7 @@ namespace reqix.Core.Domain
         {
             StatusCode = statusCode;
             ReasonPhrase = reasonPhrase ?? string.Empty;
-            Headers = headers.AsReadOnly() ?? new Dictionary<string, string>().AsReadOnly();
+            Headers = headers?.AsReadOnly() ?? new Dictionary<string, string>().AsReadOnly();
             Body = body ?? Array.Empty<byte>();
         }
     }
