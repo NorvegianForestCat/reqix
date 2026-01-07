@@ -1,8 +1,10 @@
-﻿using System;
+﻿using reqix.Core.Domain;
+using System;
 
 namespace reqix.Core.Application
 {
-    interface IRequestSender
+    public interface IRequestSender
     {
+        public Task<ApiResponse> SendAsync(ApiRequest request, SendOptions? options, CancellationToken cancellationToken);
     }
 }
