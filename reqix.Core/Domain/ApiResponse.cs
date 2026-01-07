@@ -5,7 +5,7 @@ namespace reqix.Core.Domain
     /// <summary>
     /// Represents an HTTP response with status code and response body.
     /// </summary>
-    class ApiResponse
+    public class ApiResponse
     {
         /// <summary>
         /// Gets the response status code. Cannot be Null or Empty.
