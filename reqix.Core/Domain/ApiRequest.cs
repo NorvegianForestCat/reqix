@@ -2,7 +2,7 @@
 
 namespace reqix.Core.Domain
 {
-    class ApiRequest
+    public class ApiRequest
     {
         public HttpMethod Method { get; }
         public string URL { get; }
