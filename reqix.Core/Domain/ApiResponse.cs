@@ -11,20 +11,28 @@ namespace reqix.Core.Domain
         /// Gets the response status code. Cannot be Null or Empty.
         /// </summary>
         public int StatusCode { get; }
+        public string ReasonPhrase { get; }
+        public IReadOnlyDictionary<string, string> Headers { get; }
         /// <summary>
         /// Gets the response body. Cannot be Null or Empty.
         /// </summary>
-        public string Body { get; }
+        public byte[]? Body { get; }
 
         /// <summary>
         /// Initialize a new instance of <see cref="ApiRequest"/>.
         /// </summary>
         /// <param name="statusCode">Response status code, <see cref="int"/>.</param>
         /// <param name="body">Response body, <see cref="strings"/>.</param>
-        public ApiResponse(int statusCode, string body)
+        public ApiResponse(
+            int statusCode,
+            string? reasonPhrase,
+            Dictionary<string, string>? headers = null,
+            byte[]? body = null)
         {
             StatusCode = statusCode;
-            Body = body ?? "";
+            ReasonPhrase = reasonPhrase ?? string.Empty;
+            Headers = headers.AsReadOnly() ?? new Dictionary<string, string>().AsReadOnly();
+            Body = body ?? Array.Empty<byte>();
         }
     }
 }
