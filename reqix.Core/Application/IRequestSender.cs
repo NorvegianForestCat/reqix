@@ -5,6 +5,6 @@ namespace reqix.Core.Application
 {
     public interface IRequestSender
     {
-        public Task<ApiResponse> SendAsync(ApiRequest request, SendOptions? options, CancellationToken cancellationToken);
+        public Task<ApiResponse> SendAsync(ApiRequest request, CancellationToken cancellationToken, SendOptions? options = null);
     }
 }
